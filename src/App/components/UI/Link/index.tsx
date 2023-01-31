@@ -54,6 +54,7 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
           <Button
             withBg
             style={{
+              cursor: "pointer",
               borderRadius: "5px",
               padding: ".5rem 2rem",
               backgroundColor: copied === shortenLink ? "#3A305F" : "#2CCFD1",
