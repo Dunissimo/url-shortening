@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { IApiData } from "../../../../utils/interfaces";
 import Button from "../Button";
 import { shortLink } from "../../../../api";
@@ -7,10 +7,11 @@ import styles from "./Link.module.scss";
 
 interface IProps {
   link: string;
+  copied: string | null;
+  setCopied: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const LinkToShort: FC<IProps> = ({ link }) => {
-  const [copiedLink, setCopiedLink] = useState(null);
+const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
   const [shortenLink, setLink] = useState("");
   const [error, setError] = useState(false);
 
@@ -18,14 +19,17 @@ const LinkToShort: FC<IProps> = ({ link }) => {
     shortLink(link)
       .then((data: IApiData) => {
         setLink(data.result.short_link);
-        // TODO: поменять api
         setError(false);
       })
-      .catch((e) => {
+      .catch(() => {
         setError(true);
         setLink("Error");
       });
   }, []);
+
+  const copyToClipboard = (link: string) => {
+    navigator.clipboard.writeText(link).then(() => setCopied(link));
+  };
 
   if (error) {
     return (
@@ -46,8 +50,16 @@ const LinkToShort: FC<IProps> = ({ link }) => {
           <a href={`https://${shortenLink}`}>{shortenLink}</a>
         </div>
         <div className="copy">
-          <Button withBg style={{ borderRadius: "5px", padding: ".5rem 2rem" }}>
-            Copy
+          <Button
+            withBg
+            style={{
+              borderRadius: "5px",
+              padding: ".5rem 2rem",
+              backgroundColor: copied === shortenLink ? "#3A305F" : "#2CCFD1",
+            }}
+            onClick={() => copyToClipboard(shortenLink)}
+          >
+            {copied === shortenLink ? "Copied!" : "Copy"}
           </Button>
         </div>
       </div>

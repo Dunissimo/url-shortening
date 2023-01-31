@@ -7,11 +7,13 @@ interface IProps {
   children: ReactNode;
   style?: CSSProperties;
   type?: "button" | "reset" | "submit";
+  onClick?: React.MouseEventHandler;
 }
 
-const Button: FC<IProps> = ({ withBg, children, style, type }) => {
+const Button: FC<IProps> = ({ withBg, children, style, type, onClick }) => {
   return (
     <button
+      onClick={onClick}
       style={style}
       type={type}
       className={withBg ? `${styles.btn} ${styles.btnWithBg}` : `${styles.btn}`}

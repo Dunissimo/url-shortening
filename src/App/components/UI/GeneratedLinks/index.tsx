@@ -1,6 +1,4 @@
-import { FC, Fragment, useState } from "react";
-import { shortLink } from "../../../../api";
-import { IApiData, IShortLink } from "../../../../utils/interfaces";
+import { FC, useState } from "react";
 import LinkToShort from "../Link";
 
 interface IProps {
@@ -8,17 +6,29 @@ interface IProps {
 }
 
 const GeneratedLinks: FC<IProps> = ({ links }) => {
+  const [copiedLink, setCopiedLink] = useState<string | null>(null);
+
+  const p =
+    links.length > 0 ? (
+      ""
+    ) : (
+      <p style={{ opacity: ".5", textAlign: "center" }}>
+        API, который я использую, блокирует множество ссылок, следовательно,
+        некоторые ссылки не будут сокращены. <br /> API which I use blocks many
+        links, therefore, some links will not be reduced
+      </p>
+    );
+
   return (
     <div>
-      {links.length > 0 ? (
-        links.map((link) => <LinkToShort link={link} />)
-      ) : (
-        <p style={{ opacity: ".5", textAlign: "center" }}>
-          API, который я использую, блокирует множество ссылок, следовательно,
-          некоторые ссылки не будут сокращены. <br /> API which I use blocks
-          many links, therefore, some links will not be reduced
-        </p>
-      )}
+      {links.map((link) => (
+        <LinkToShort
+          link={link}
+          copied={copiedLink}
+          setCopied={setCopiedLink}
+        />
+      ))}
+      {p}
     </div>
   );
 };
