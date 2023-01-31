@@ -13,15 +13,15 @@ const GeneratedLinks: FC<IProps> = ({ links }) => {
       ""
     ) : (
       <p style={{ opacity: ".5", textAlign: "center" }}>
-        API, который я использую, блокирует множество ссылок, следовательно,
-        некоторые ссылки не будут сокращены. <br /> API which I use blocks many
-        links, therefore, some links will not be reduced
+        API, который я использую, блокирует некоторые адреса, следовательно,
+        некоторые ссылки не будут сокращены. <br /> The API that I use blocks
+        some addresses, therefore, some links will not reduced.
       </p>
     );
 
   return (
     <div>
-      {links.map((link) => (
+      {links.map((link, i) => (
         <LinkToShort
           link={link}
           copied={copiedLink}

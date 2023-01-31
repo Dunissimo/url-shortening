@@ -25,6 +25,7 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
         setError(true);
         setLink("Error");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const copyToClipboard = (link: string) => {
@@ -34,7 +35,7 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
   if (error) {
     return (
       <div className={styles.link}>
-        <div className="input">Something went wrong :(</div>
+        <div className={styles.input}>Something went wrong :(</div>
         <div className={styles.output}>
           <a href="/">{shortenLink}</a>
         </div>
@@ -44,7 +45,7 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
 
   return (
     <div className={styles.link}>
-      <div className="input">{link}</div>
+      <div className={styles.input}>{link}</div>
       <div className={styles.shortLink}>
         <div className={styles.output}>
           <a href={`https://${shortenLink}`}>{shortenLink}</a>

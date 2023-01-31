@@ -2,8 +2,7 @@
 
 .link {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
 
   border-radius: 0.5rem;
   background: white;
@@ -14,6 +13,13 @@
   margin-bottom: 1rem;
 
   animation: link 0.3s ease 1;
+}
+
+.input {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30%;
+  text-overflow: ellipsis;
 }
 
 .shortLink {
@@ -46,10 +52,20 @@
 @keyframes link {
   0% {
     transform: translateY(-100%);
+    height: 0;
     opacity: 0;
   }
   100% {
     transform: translateY(0%);
     opacity: 1;
+    height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .link {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

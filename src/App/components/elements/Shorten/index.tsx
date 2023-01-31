@@ -1,6 +1,4 @@
 import { FC, FormEvent, FormEventHandler, useState } from "react";
-import { shortLink } from "../../../../api";
-import { IApiData } from "../../../../utils/interfaces";
 import { validateURL } from "../../../../utils/utils";
 import Button from "../../UI/Button";
 import GeneratedLinks from "../../UI/GeneratedLinks";
@@ -40,6 +38,7 @@ const Shorten: FC = () => {
             onSubmit={submitHandler}
           >
             <input
+              autoComplete="off"
               type="text"
               name="link"
               id="link"
