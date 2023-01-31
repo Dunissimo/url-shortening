@@ -12,7 +12,7 @@ const GeneratedLinks: FC<IProps> = ({ links }) => {
     links.length > 0 ? (
       ""
     ) : (
-      <p style={{ opacity: ".5", textAlign: "center" }}>
+      <p style={{ textAlign: "center", fontSize: "0.5rem", opacity: 0.5 }}>
         API, который я использую, блокирует некоторые адреса, следовательно,
         некоторые ссылки не будут сокращены. <br /> The API that I use blocks
         some addresses, therefore, some links will not reduced.

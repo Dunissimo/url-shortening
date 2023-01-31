@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { IApiData } from "../../../../utils/interfaces";
 import Button from "../Button";
 import { shortLink } from "../../../../api";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import styles from "./Link.module.scss";
 
@@ -28,10 +29,6 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const copyToClipboard = (link: string) => {
-    navigator.clipboard.writeText(link).then(() => setCopied(link));
-  };
-
   if (error) {
     return (
       <div className={styles.link}>
@@ -50,19 +47,23 @@ const LinkToShort: FC<IProps> = ({ link, copied, setCopied }) => {
         <div className={styles.output}>
           <a href={`https://${shortenLink}`}>{shortenLink}</a>
         </div>
-        <div className="copy">
-          <Button
-            withBg
-            style={{
-              cursor: "pointer",
-              borderRadius: "5px",
-              padding: ".5rem 2rem",
-              backgroundColor: copied === shortenLink ? "#3A305F" : "#2CCFD1",
-            }}
-            onClick={() => copyToClipboard(shortenLink)}
+        <div className={styles.copy} style={{ cursor: "pointer" }}>
+          <CopyToClipboard
+            text={shortenLink}
+            onCopy={() => setCopied(shortenLink)}
           >
-            {copied === shortenLink ? "Copied!" : "Copy"}
-          </Button>
+            <Button
+              withBg
+              style={{
+                cursor: "pointer",
+                borderRadius: "5px",
+                padding: ".5rem 2rem",
+                backgroundColor: copied === shortenLink ? "#3A305F" : "#2CCFD1",
+              }}
+            >
+              {copied === shortenLink ? "Copied!" : "Copy"}
+            </Button>
+          </CopyToClipboard>
         </div>
       </div>
     </div>
