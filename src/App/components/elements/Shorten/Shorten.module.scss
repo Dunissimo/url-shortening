@@ -1,0 +1,95 @@
+@import "../../../../variables.scss";
+
+.mainDiv {
+  background: $neutral-light-gray;
+}
+
+.shorten {
+  width: 100%;
+
+  padding: 30px 20px;
+
+  border-radius: 10px;
+  background-image: url("../../../../../public/images/bg-shorten-mobile.svg");
+  background-color: $primary-darkViolet;
+
+  transform: translateY(-85%);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.notValidForm {
+  composes: form;
+  padding-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.3s;
+
+  &::after {
+    content: "Please add a link";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    color: $secondary-red;
+  }
+}
+
+.linkInput {
+  width: 100%;
+
+  margin-bottom: 1rem;
+  padding: 15px 10px;
+
+  border-radius: 5px;
+  border: none;
+  outline: none;
+
+  font-size: 1.2rem;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0px 5px 25px gray;
+  }
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+}
+
+.notValidInput {
+  composes: linkInput;
+  border: 3px solid $secondary-red;
+  color: $secondary-red;
+
+  transition: all 0.3s;
+
+  &::placeholder {
+    color: $secondary-red;
+    opacity: 0.6;
+  }
+}
+
+.btnBlock {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .shorten {
+    background-image: url("../../../../../public/images/bg-shorten-desktop.svg");
+  }
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .linkInput {
+    width: 70%;
+    margin-bottom: 0;
+  }
+  .btnBlock {
+    width: 20%;
+  }
+}

@@ -1,0 +1,60 @@
+@import "../../../../variables.scss";
+
+.mainDiv {
+  position: relative;
+  margin-bottom: 10rem;
+}
+
+.left {
+  width: 100%;
+  text-align: center;
+  padding-top: 20rem;
+}
+.right {
+  width: 100%;
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 20%;
+  }
+}
+
+.h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: $neutral-darkBlue;
+  line-height: 1.2;
+}
+
+.p {
+  font-size: 1.4rem;
+  color: $neutral-grayishViolet;
+  margin: 1rem 0 2rem 0;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .left {
+    width: 55%;
+    text-align: left;
+    padding-top: 0;
+  }
+  .right {
+    width: 50%;
+
+    img {
+      width: 65%;
+
+      position: absolute;
+      top: 0;
+      left: 60%;
+    }
+  }
+  .h2 {
+    font-size: 4rem;
+  }
+  .p {
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../../../variables.scss";
+
+.bg {
+  background-image: url("../../../../../public/images/icon-brand-recognition.svg");
+  background-color: $primary-darkViolet;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 2rem 0;
+  text-align: center;
+}
+.h {
+  margin-bottom: 2rem;
+
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: white;
+}
+
+@media (min-width: 1024px) {
+  .bg {
+    background-image: url("../../../../../public/images/bg-boost-desktop.svg");
+  }
+  .h {
+    font-size: 2.5rem;
+  }
+}

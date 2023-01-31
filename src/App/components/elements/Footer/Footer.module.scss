@@ -1,0 +1,53 @@
+@import "../../../../variables.scss";
+
+.footer {
+  padding: 2rem 0;
+
+  color: white;
+  background: $neutral-footer-bg;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.links {
+  margin-top: 2rem;
+  ul {
+    margin-bottom: 2rem;
+  }
+  h4 {
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  li {
+    margin-bottom: 1rem;
+    a {
+      color: $neutral-grayishViolet;
+      text-decoration: none;
+      transition: 0.3s;
+      &:hover {
+        color: $primary-cyan;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .flex {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .links {
+    margin-top: 0;
+    ul {
+      margin-right: 4rem;
+      margin-bottom: 0;
+    }
+  }
+}

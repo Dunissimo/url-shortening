@@ -1,0 +1,54 @@
+@import "../../../../variables.scss";
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  color: $neutral-darkBlue;
+  font-weight: 700;
+
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+
+  animation: link 0.3s ease 1;
+}
+
+.shortLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .output {
+    margin-right: 2rem;
+
+    transition: 0.3s;
+    a {
+      text-decoration: none;
+      color: $primary-cyan;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.error {
+  composes: output;
+  a {
+    text-decoration: none;
+    color: $secondary-red;
+  }
+}
+
+@keyframes link {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

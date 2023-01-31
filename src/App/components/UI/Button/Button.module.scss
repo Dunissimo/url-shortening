@@ -1,0 +1,33 @@
+@import "../../../../variables.scss";
+
+.btn {
+  overflow: visible;
+  border: none;
+  background: none;
+  border-radius: 40px;
+
+  cursor: pointer;
+
+  margin-right: 1rem;
+  padding: 10px 15px;
+
+  font-weight: 700;
+  font-size: 1em;
+  color: $neutral-grayishViolet;
+
+  transition: all 0.3s;
+
+  &:hover {
+    background: $primary-light-cyan;
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+.btnWithBg {
+  background: $primary-cyan;
+  color: white;
+}
